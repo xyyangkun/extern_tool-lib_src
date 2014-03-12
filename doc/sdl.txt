@@ -1,0 +1,11 @@
+freetype:
+./configure --prefix=/workplace/mywork/git/extern_tool-lib_src/OUT/
+make -j20
+
+sdl:
+./configure --prefix=/workplace/mywork/git/extern_tool-lib_src/OUT/
+make -j20
+
+SDL_ttf-2.0.11:
+./configure --with-sdl-prefix=/workplace/mywork/git/extern_tool-lib_src/OUT/ --with-freetype-prefix=/workplace/mywork/git/extern_tool-lib_src/OUT/ --prefix=/workplace/mywork/git/extern_tool-lib_src/OUT/
+
