@@ -1,0 +1,7 @@
+1、先编译yasm
+export PATH=$PATH:$(pwd)/yasm-1.2.0
+
+2、编译x264
+./configure --prefix=/workplace/mywork/git/extern_tool-lib_src/OUT/ --enable-shared 
+make -j20
+make install

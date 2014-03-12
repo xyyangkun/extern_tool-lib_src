@@ -1,0 +1,14 @@
+prefix=/workplace/mywork/git/extern_tool-lib_src/OUT/
+exec_prefix=${prefix}
+libdir=${prefix}/lib
+includedir=${prefix}/include
+
+Name: libavcodec
+Description: Libav codec library
+Version: 54.35.0
+Requires: 
+Requires.private: libavutil = 52.3.0
+Conflicts:
+Libs: -L${libdir} -lavcodec 
+Libs.private: -lx264 -lm -pthread -lz -lx264
+Cflags: -I${includedir}

@@ -1,0 +1,14 @@
+prefix=/workplace/mywork/git/extern_tool-lib_src/OUT/
+exec_prefix=${prefix}
+libdir=${prefix}/lib
+includedir=${prefix}/include
+
+Name: libavdevice
+Description: Libav device handling library
+Version: 53.2.0
+Requires: 
+Requires.private: libavformat = 54.20.3
+Conflicts:
+Libs: -L${libdir} -lavdevice 
+Libs.private: -lx264 -lm -pthread -lz -lx264
+Cflags: -I${includedir}
