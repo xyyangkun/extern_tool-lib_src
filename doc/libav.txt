@@ -1,3 +1,5 @@
+解决vaapi not found错误：
+sudo apt-get install libva-dev
 编译libav加入x264支持：
-./configure --prefix=/workplace/mywork/git/extern_tool-lib_src/OUT/  --enable-gpl  --enable-shared --disable-static --enable-libx264  --extra-cflags=-I/workplace/mywork/git/extern_tool-lib_src/OUT/include --extra-ldflags=-L/workplace/mywork/git/extern_tool-lib_src/OUT/lib --extra-libs=-lx264
+./configure --prefix=/workplace/mywork/git/extern_tool-lib_src/OUT/  --enable-gpl  --enable-shared --disable-static --enable-libx264  --extra-cflags=-I/workplace/mywork/git/extern_tool-lib_src/OUT/include --extra-ldflags=-L/workplace/mywork/git/extern_tool-lib_src/OUT/lib --extra-libs=-lx264 --enable-x11grab --enable-dxva2 --enable-vaapi --enable-vda --enable-vdpau
 make install

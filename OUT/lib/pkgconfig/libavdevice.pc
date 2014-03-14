@@ -10,5 +10,5 @@ Requires:
 Requires.private: libavformat = 54.20.3
 Conflicts:
 Libs: -L${libdir} -lavdevice 
-Libs.private: -lx264 -lm -pthread -lz -lx264
+Libs.private: -lXfixes -lXext -lX11 -lx264 -lva -lm -pthread -lz -lx264
 Cflags: -I${includedir}
