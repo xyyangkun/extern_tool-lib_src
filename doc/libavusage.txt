@@ -1,0 +1,9 @@
+在左上角把logo去掉
+./avconv  -v debug -f x11grab -s vga -r 25 -i :0.0 -vf "delogo=x=0:y=0:w=100:h=77:band=10" /tmp/out.mpg
+动态的加上时间logo：
+./avconv  -v debug -f x11grab -s vga -r 25 -i :0.0 -vf  drawtext="fontfile=/usr/share/fonts/truetype/freefont/FreeSerif.ttf: text='\%T' :x=100: y=50: fontsize=24: fontcolor=blue@0.2: box=1: boxcolor=red@0.2"  /tmp/out.mkv
+从摄像头直接编码图片，并加上时间osd：
+./avconv -f video4linux2 -i /dev/video0 -s 640x480 -r 30 -vf "drawtext=fontfile=/usr/share/fonts/truetype/ttf-dejavu/DejaVuSans-Bold.ttf: text='\%T': fontcolor=white@0.8: x=7: y=460" -vcodec libx264 -vb 2000k -preset ultrafast -f mp4 output.mp4
+显示年月日时分秒 格式 主要是strftime格式的支持
+./avconv -f video4linux2 -i /dev/video0 -s 640x480 -r 30 -vf "drawtext=fontfile=/usr/share/fonts/truetype/ttf-dejavu/DejaVuSans-Bold.ttf: text='\%F \%T': fontcolor=white@0.8: x=7: y=460" -vcodec libx264 -vb 1000k -preset ultrafast -f mp4 output.mp4
+
