@@ -7,3 +7,7 @@
 显示年月日时分秒 格式 主要是strftime格式的支持
 ./avconv -f video4linux2 -i /dev/video0 -s 640x480 -r 30 -vf "drawtext=fontfile=/usr/share/fonts/truetype/ttf-dejavu/DejaVuSans-Bold.ttf: text='\%F \%T': fontcolor=white@0.8: x=7: y=460" -vcodec libx264 -vb 1000k -preset ultrafast -f mp4 output.mp4
 
+
+
+gdb ./avconv -command=cmd.txt
+

@@ -1,4 +1,3 @@
-
 CROSS=
 #arm-hisiv200-linux-
 #arm-linux-
@@ -7,17 +6,18 @@ CXX=$(CROSS)g++
 LINK=$(CROSS)g++ -o
 LIBRARY_LINK=$(CROSS)ar cr
 
-
-TOP=$(HOME)/mywork/git/extern_tool-lib_src/
 OUT=./OUT
 SRCDIR=./src
-				   
+
+TOP=/home/xy/mywork/git/extern_tool-lib_src/OUT
+#LIBJDIR_JRTP=/workplace/mywork/git/jrtplib
 #头文件
-INCLUDE= -I $(TOP)/OUT/include 
+INCLUDE= -I ./include -I$(TOP)/include
+
 
 #库文件
-LIBDIR= -L$(TOP)/OUT/lib 
-LIBS =  -lX11 -lx264 -lva -lm -pthread -lz -lx264 -lavdevice -lavcodec -lavformat -lavfilter -lavutil -lswscale -lavresample
+LIBDIR= -L./lib  -L$(TOP)/lib
+LIBS =  
 LDLIBS=$(LIBDIR) $(LIBS)
 
 #编译选项
@@ -27,7 +27,7 @@ CFLAGS=-g
 CFLAGS+=   $(INCLUDE) $(LDLIBS)
 
 #目标
-all: main
+all: test_libav_filter
 
 %.o:%.cpp
 	$(CXX) -c $< -o $@ $(CXXFLAGS)
@@ -35,22 +35,18 @@ all: main
 	$(CC) -c $< -o $@ $(CFLAGS)
 
 CPPOBJS = 
-CPPOBJS= 
+CPPOBJS=
 
 
-main:main.o $(CPPOBJS)
-	$(LINK) $@ $< $(CPPOBJS) $(CXXFLAGS) 	
-main.o: main.cpp
-	$(CXX) -c $< -o $@ $(CXXFLAGS)
+test_libav_filter: test_libav_filter.o $(CPPOBJS)
+	$(LINK) $@ $< $(CPPOBJS) $(CFLAGS) 	
+test_libav_filter.o:  test_libav_filter.c
+	$(CC) -c $< -o $@ $(CFLAGS)
 
 
+ 
 	
 clean:
 	rm $(OUT)/*
-	rm unit_test/*.o
-	
-	
-	
-	
-	
+
 	
